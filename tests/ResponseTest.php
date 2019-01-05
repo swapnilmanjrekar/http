@@ -44,6 +44,17 @@ class ResponseTest extends TestCase
 	}
 
 	/**
+	 * @covers \calderawp\caldera\Http\Response::setHttpMethod()
+	 * @covers \calderawp\caldera\Http\Response::getHttpMethod()
+	 */
+	public function testGetSetHttpMethod()
+	{
+		$response = new Response();
+		$response->setHttpMethod('PUT' );
+		$this->assertSame('PUT', $response->getHttpMethod());
+	}
+
+	/**
 	 * @covers \calderawp\caldera\Http\Response::addHeader()
 	 */
 	public function testAddHeadersViaAddHeader()

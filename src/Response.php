@@ -4,6 +4,7 @@
 namespace calderawp\caldera\Http;
 
 use calderawp\interop\Contracts\Rest\RestResponseContract;
+use calderawp\interop\Contracts\HttpResponseContract;
 use calderawp\interop\Traits\Rest\ProvidesRestResponse;
 
 class Response implements RestResponseContract
@@ -28,7 +29,7 @@ class Response implements RestResponseContract
 		return $this;
 	}
 
-	public static function fromArray($items): RestResponseContract
+	public static function fromArray($items): HttpResponseContract
 	{
 		$obj = new static();
 		foreach ([

@@ -50,7 +50,6 @@ class CalderaHttp extends Module implements CalderaHttpContract
 		$client = $this->getClient();
 		$response = $client->send($request);
 		return $this->fromPsr7Response($response);
-
 	}
 
 	/** @inheritdoc */
@@ -70,9 +69,10 @@ class CalderaHttp extends Module implements CalderaHttpContract
 		$_response = new \calderawp\caldera\Http\Response();
 		$_response->setHeaders($response->getHeaders());
 		$_response->setStatus($response->getStatusCode());
-		$_response->setData(
-			//json_decode($response->getBody(), true)
-		[]);
+		$body = json_decode($response->getBody(), true);
+		if (is_array($body)) {
+			$_response->setData($body);
+		}
 		return $_response;
 	}
 
@@ -91,5 +91,4 @@ class CalderaHttp extends Module implements CalderaHttpContract
 		}
 		return $this->getServiceContainer()->make(Client::class);
 	}
-
 }

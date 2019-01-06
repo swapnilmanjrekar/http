@@ -28,4 +28,3 @@ class Request implements RestRequestContract
 		return $obj;
 	}
 }
-

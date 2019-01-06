@@ -21,7 +21,7 @@ interface CalderaHttpContract extends CalderaModule
 	 *
 	 * @return Response
 	 */
-	public function send(Request $request, string $uri ) : Response;
+	public function send(Request $request, string $uri) : Response;
 
 	/**
 	 * Set the HTTP client
@@ -30,7 +30,7 @@ interface CalderaHttpContract extends CalderaModule
 	 *
 	 * @return CalderaHttpContract
 	 */
-	public function setClient( Client $client ) : CalderaHttpContract;
+	public function setClient(Client $client) : CalderaHttpContract;
 
 	/**
 	 * Get the HTTP client
@@ -56,5 +56,5 @@ interface CalderaHttpContract extends CalderaModule
 	 *
 	 * @return Response
 	 */
-	public function fromPsr7Response( ResponseInterface $response) : Response;
+	public function fromPsr7Response(ResponseInterface $response) : Response;
 }

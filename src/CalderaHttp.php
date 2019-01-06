@@ -48,7 +48,7 @@ class CalderaHttp extends Module implements CalderaHttpContract
 
 		$request = $this->toPsr7Request($request, $uri);
 		$client = $this->getClient();
-		$response = $client->send($request);
+		$response = $client->send($request, ['verify' => false]);
 		return $this->fromPsr7Response($response);
 	}
 

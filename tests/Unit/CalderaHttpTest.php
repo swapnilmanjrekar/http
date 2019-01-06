@@ -1,6 +1,6 @@
 <?php
 
-namespace calderawp\caldera\Http\Tests;
+namespace calderawp\caldera\Http\Tests\Unit;
 
 use calderawp\caldera\Http\CalderaHttp;
 use calderawp\caldera\Http\Request;
@@ -14,7 +14,7 @@ use Psr\Http\Message\RequestInterface;
 use calderawp\interop\Contracts\HttpResponseContract as ResponseContract;
 
 
-class CalderaHttpTest extends TestCase
+class CalderaHttpTest extends UnitTestCase
 {
 
 	/**

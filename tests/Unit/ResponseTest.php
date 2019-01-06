@@ -1,11 +1,10 @@
 <?php
 
-namespace calderawp\caldera\Http\Tests;
+namespace calderawp\caldera\Http\Tests\Unit;
 
 use calderawp\caldera\Http\Response;
-use PHPUnit\Framework\TestCase;
 
-class ResponseTest extends TestCase
+class ResponseTest extends UnitTestCase
 {
 
 	/**

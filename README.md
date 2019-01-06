@@ -1,28 +1,19 @@
-# PHP Boilerplate
+# Caldera Http
 
 A boilerplate for new composer based PHP projects.
 
-## Getting started
+## Usage
 
-```bash
-# With composer
-$ composer create-project kreait/php-boilerplate new-project
+### Install
 
-# With git
-$ git clone git@github.com:kreait/php-boilerplate.git new-project && cd $_ && rm -rf .git && git init
-```
 
-### Update `composer.json`
+### Using
 
-Replace the Namespaces in the `autoload` and `autoload-dev` sections with your project's namespaces
-and run `composer dump-autoload`.
 
-### (Optional) Update `.gitattributes`
-
-Remove the comments in `.gitattributes` so that unneeded files for your package won't get included in your releases.
-
-### (Optional) Add `composer.lock` to the `.gitignore` file
-
-If you're creating an application instead of a library, it is considered good practice to commit the `composer.lock` file together with the rest of the code.
-
-### Start coding! :smile:
+## Testing
+* Run all tests (JK, just unit tests beacuse that's the pattern)
+    - `composer test`
+* Run unit tests
+    - `composer test:unit`
+* Run acceptance tests
+    - `composer test:acceptance`

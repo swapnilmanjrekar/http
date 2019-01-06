@@ -13,7 +13,6 @@ use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\RequestInterface;
 use calderawp\interop\Contracts\HttpResponseContract as ResponseContract;
 
-
 class CalderaHttpTest extends UnitTestCase
 {
 
@@ -34,8 +33,7 @@ class CalderaHttpTest extends UnitTestCase
 			'params' => $params,
 		]);
 		$http = new CalderaHttp($this->core(), $this->serviceContainer());
-		$this->assertInstanceOf( RequestInterface::class, $http->toPsr7Request( $request,'https://url.com'));
-
+		$this->assertInstanceOf(RequestInterface::class, $http->toPsr7Request($request, 'https://url.com'));
 	}
 	/**
 	 * @covers \calderawp\caldera\Http\CalderaHttp::getIdentifier()
@@ -63,9 +61,8 @@ class CalderaHttpTest extends UnitTestCase
 		]);
 		$http = new CalderaHttp($this->core(), $this->serviceContainer());
 		$http->setClient($client);
-		$resonse = $http->send($request,'https://foo.com');
-		$this->assertInstanceOf(ResponseContract::class, $resonse );
-
+		$resonse = $http->send($request, 'https://foo.com');
+		$this->assertInstanceOf(ResponseContract::class, $resonse);
 	}
 
 	/**
@@ -75,10 +72,11 @@ class CalderaHttpTest extends UnitTestCase
 	public function testRegisterServices()
 	{
 		$http = new CalderaHttp($this->core(), $this->serviceContainer());
-		$this->assertInstanceOf(ClientInterface::class, $http->getClient() );
+		$this->assertInstanceOf(ClientInterface::class, $http->getClient());
 	}
 
-	public function testSetClient(){
+	public function testSetClient()
+	{
 		$mock = new MockHandler([
 			new Response(200, ['X-Foo' => 'Bar']),
 		]);
@@ -90,7 +88,7 @@ class CalderaHttpTest extends UnitTestCase
 		]);
 		$http = new CalderaHttp($this->core(), $this->serviceContainer());
 		$http->setClient($client);
-		$this->assertInstanceOf(ClientInterface::class,$http->getClient());
-		$this->assertSame($client,$http->getClient());
+		$this->assertInstanceOf(ClientInterface::class, $http->getClient());
+		$this->assertSame($client, $http->getClient());
 	}
 }

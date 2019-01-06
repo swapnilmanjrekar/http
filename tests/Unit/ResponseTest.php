@@ -49,7 +49,7 @@ class ResponseTest extends UnitTestCase
 	public function testGetSetHttpMethod()
 	{
 		$response = new Response();
-		$response->setHttpMethod('PUT' );
+		$response->setHttpMethod('PUT');
 		$this->assertSame('PUT', $response->getHttpMethod());
 	}
 

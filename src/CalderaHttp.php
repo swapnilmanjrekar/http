@@ -8,13 +8,13 @@ use calderawp\interop\Contracts\CalderaModule;
 use calderawp\interop\Contracts\HttpRequestContract as Request;
 use calderawp\interop\Contracts\HttpResponseContract as Response;
 use calderawp\interop\Module;
-use calderawp\caldera\Http\Contracts\HttpContract;
+use calderawp\caldera\Http\Contracts\CalderaHttpContract;
 use Psr\Http\Message\RequestInterface;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\ClientInterface as Client;
 use Psr\Http\Message\ResponseInterface;
 
-class Http extends Module implements HttpContract
+class CalderaHttp extends Module implements CalderaHttpContract
 {
 	const IDENTIFIER = 'Http';
 
@@ -70,12 +70,14 @@ class Http extends Module implements HttpContract
 		$_response = new \calderawp\caldera\Http\Response();
 		$_response->setHeaders($response->getHeaders());
 		$_response->setStatus($response->getStatusCode());
-		$_response->setData(json_decode($response->getBody(), true));
+		$_response->setData(
+			//json_decode($response->getBody(), true)
+		[]);
 		return $_response;
 	}
 
 	/** @inheritdoc */
-	public function setClient(Client $client): HttpContract
+	public function setClient(Client $client): CalderaHttpContract
 	{
 		$this->client = $client;
 		return $this;

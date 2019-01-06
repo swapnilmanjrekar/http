@@ -2,7 +2,7 @@
 
 namespace calderawp\caldera\Http\Tests;
 
-use calderawp\caldera\Http\Http;
+use calderawp\caldera\Http\CalderaHttp;
 use calderawp\caldera\Http\Request;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -14,11 +14,11 @@ use Psr\Http\Message\RequestInterface;
 use calderawp\interop\Contracts\HttpResponseContract as ResponseContract;
 
 
-class HttpTest extends TestCase
+class CalderaHttpTest extends TestCase
 {
 
 	/**
-	 * @covers \calderawp\caldera\Http\Http::toPsr7Request()
+	 * @covers \calderawp\caldera\Http\CalderaHttp::toPsr7Request()
 	 */
 	public function testToPsr7Request()
 	{
@@ -33,21 +33,21 @@ class HttpTest extends TestCase
 			'headers' => $headers,
 			'params' => $params,
 		]);
-		$http = new Http($this->core(), $this->serviceContainer());
+		$http = new CalderaHttp($this->core(), $this->serviceContainer());
 		$this->assertInstanceOf( RequestInterface::class, $http->toPsr7Request( $request,'https://url.com'));
 
 	}
 	/**
-	 * @covers \calderawp\caldera\Http\Http::getIdentifier()
+	 * @covers \calderawp\caldera\Http\CalderaHttp::getIdentifier()
 	 */
 	public function testGetIdentifier()
 	{
-		$http = new Http($this->core(), $this->serviceContainer());
+		$http = new CalderaHttp($this->core(), $this->serviceContainer());
 		$this->assertSame('Http', $http->getIdentifier());
 	}
 
 	/**
-	 * @covers \calderawp\caldera\Http\Http::send()
+	 * @covers \calderawp\caldera\Http\CalderaHttp::send()
 	 */
 	public function testSend()
 	{
@@ -61,7 +61,7 @@ class HttpTest extends TestCase
 			'headers' => [],
 			'params' => [],
 		]);
-		$http = new Http($this->core(), $this->serviceContainer());
+		$http = new CalderaHttp($this->core(), $this->serviceContainer());
 		$http->setClient($client);
 		$resonse = $http->send($request,'https://foo.com');
 		$this->assertInstanceOf(ResponseContract::class, $resonse );
@@ -69,12 +69,12 @@ class HttpTest extends TestCase
 	}
 
 	/**
-	 * @covers \calderawp\caldera\Http\Http::registerServices()
-	 * @covers \calderawp\caldera\Http\Http::getClient()
+	 * @covers \calderawp\caldera\Http\CalderaHttp::registerServices()
+	 * @covers \calderawp\caldera\Http\CalderaHttp::getClient()
 	 */
 	public function testRegisterServices()
 	{
-		$http = new Http($this->core(), $this->serviceContainer());
+		$http = new CalderaHttp($this->core(), $this->serviceContainer());
 		$this->assertInstanceOf(ClientInterface::class, $http->getClient() );
 	}
 
@@ -88,7 +88,7 @@ class HttpTest extends TestCase
 			'headers' => [],
 			'params' => [],
 		]);
-		$http = new Http($this->core(), $this->serviceContainer());
+		$http = new CalderaHttp($this->core(), $this->serviceContainer());
 		$http->setClient($client);
 		$this->assertInstanceOf(ClientInterface::class,$http->getClient());
 		$this->assertSame($client,$http->getClient());

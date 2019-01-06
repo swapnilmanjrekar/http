@@ -10,7 +10,7 @@ use Psr\Http\Message\RequestInterface;
 use GuzzleHttp\ClientInterface as Client;
 use Psr\Http\Message\ResponseInterface;
 
-interface HttpContract extends CalderaModule
+interface CalderaHttpContract extends CalderaModule
 {
 
 	/**
@@ -28,9 +28,9 @@ interface HttpContract extends CalderaModule
 	 *
 	 * @param Client $client
 	 *
-	 * @return HttpContract
+	 * @return CalderaHttpContract
 	 */
-	public function setClient( Client $client ) : HttpContract;
+	public function setClient( Client $client ) : CalderaHttpContract;
 
 	/**
 	 * Get the HTTP client

@@ -10,9 +10,17 @@ use calderawp\interop\Traits\Rest\ProvidesRestParams;
 class Request implements RestRequestContract
 {
 
-	use ProvidesHttpHeaders, ProvidesRestParams;
+	use
+		//get and set headers
+		ProvidesHttpHeaders,
+		//Get and set params (query vars or body arguments)
+		ProvidesRestParams;
 
-
+	/**
+	 * @param array $items
+	 *
+	 * @return Request
+	 */
 	public static function fromArray(array $items = ['headers' => [], 'params' => [] ])
 	{
 		$obj = new static();

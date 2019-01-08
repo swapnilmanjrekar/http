@@ -99,9 +99,13 @@ $body = $response->getData();// body of remote request response
 
 
 ## Testing
-* Run all tests (JK, just unit tests beacuse that's the pattern)
+* Run all tests (JK, just unit tests because that's the pattern)
     - `composer test`
 * Run unit tests
     - `composer test:unit`
 * Run acceptance tests
     - `composer test:acceptance`
+
+    
+## License, Copyright, etc.
+Copyright 2018+ CalderaWP LLC and licensed under the terms of the GNU GPL license. Please share with your neighbor.

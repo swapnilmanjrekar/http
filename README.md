@@ -44,8 +44,13 @@ Main module class methods:
     - Could be used to add a different HTTP transport or something that pretends to be HTTP.
 
 There are other public methods. They really should get moved to another class, as this class. Don't use them please.
+
 ### Install
-`composer require @TODO`
+* Add to your package:
+    - `composer require calderawp/http`
+* Install for development:
+    - `git clone git@github.com:CalderaWP/http.git && composer install`
+
 
 ### Using
 

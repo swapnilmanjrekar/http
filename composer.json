@@ -1,5 +1,5 @@
 {
-    "name": "calderawp/http",
+    "name": "swapnilmanjrekar/http",
     "description": "A boilerplate for new composer based PHP projects.",
     "license": "GPL-2.0",
     "require": {
@@ -33,8 +33,6 @@
     "scripts": {
         "test": "composer test:unit",
         "test:unit": "phpunit --testsuite=Unit",
-        "test:acceptance": "phpunit  --testsuite=Acceptance",
-        "tests-now": "phpunit tests --group=now",
         "sniffs": "phpcs src/ && phpcs src/",
         "fixes": "phpcbf src/ && phpcbf tests/"
     }
